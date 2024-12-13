@@ -1,0 +1,97 @@
+/* Overall section styling */
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(to bottom, #f8f9fa, #e6e9f0);
+    min-height: 100vh;
+  }
+  
+  /* Intro text styling */
+  .landing-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .landing-intro h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .landing-intro p {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 600px;
+  }
+  
+  .landing-intro .highlight {
+    font-weight: bold;
+    color: #ff6f61;
+  }
+  
+  /* Image cards grid */
+  .landing-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  /* Individual card styling */
+  .image-card {
+    background-color: white;
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .image-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .image-card p {
+    font-size: 1rem;
+    color: #777;
+  }
+  
+  /* Unique colors for each card */
+  .meal-card {
+    border-top: 5px solid #ff6f61;
+  }
+  
+  .cocktail-card {
+    border-top: 5px solid #6b5b95;
+  }
+  
+  .book-card {
+    border-top: 5px solid #88b04b;
+  }
+  
+  .bank-card {
+    border-top: 5px solid #f7cac9;
+  }
+  
+  /* Hover effect for cards */
+  .image-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .landing-intro h1 {
+      font-size: 2rem;
+    }
+  
+    .landing-intro p {
+      font-size: 1rem;
+    }
+  }
+  
