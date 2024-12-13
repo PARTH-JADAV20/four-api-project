@@ -1,11 +1,32 @@
-/* Overall section styling */
-.landing-page {
+/* Ensure no scrolling */
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  
+  /* Overall section styling */
+  .landing-page {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Centers the content vertically */
     padding: 2rem;
     background: linear-gradient(to bottom, #f8f9fa, #e6e9f0);
-    min-height: 100vh;
+    height: 100%; /* Ensure the section takes full height of the viewport */
+    animation: fadeIn 1s ease-out;
+    overflow: hidden; /* Disable overflow */
+  }
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
   
   /* Intro text styling */
@@ -15,15 +36,17 @@
   }
   
   .landing-intro h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: #333;
     margin-bottom: 1rem;
+    animation: slideIn 1s ease-out;
   }
   
   .landing-intro p {
     font-size: 1.2rem;
     color: #555;
-    max-width: 600px;
+    max-width: 800px;
+    margin: 0 auto;
   }
   
   .landing-intro .highlight {
@@ -31,13 +54,38 @@
     color: #ff6f61;
   }
   
+  /* Slide-in animation for intro text */
+  @keyframes slideIn {
+    0% {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
   /* Image cards grid */
   .landing-images {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
     width: 100%;
     max-width: 1200px;
+    animation: zoomIn 1s ease-out;
+  }
+  
+  /* Zoom-in animation for the image cards grid */
+  @keyframes zoomIn {
+    0% {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
   }
   
   /* Individual card styling */
@@ -51,7 +99,7 @@
   }
   
   .image-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     margin-bottom: 1rem;
     color: #333;
   }
@@ -59,6 +107,32 @@
   .image-card p {
     font-size: 1rem;
     color: #777;
+    margin-bottom: 1rem;
+  }
+  
+  /* Add images to the cards */
+  .card-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    animation: bounceIn 1s ease-out;
+  }
+  
+  /* Bounce-in animation for images */
+  @keyframes bounceIn {
+    0% {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+    60% {
+      transform: translateY(30px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
   
   /* Unique colors for each card */
