@@ -1,38 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import LandingPage from "./components/LandingPage";
-// import Meal from "./components/Meal";
-// import Cocktail from "./components/Cocktail";
-// import Books from "./components/Books";
-// import Bank from "./components/Bank";
+import Meal from "./components/Meal";
+import Cocktail from "./components/Cocktail";
+import Books from "./components/Books";
+import Bank from "./components/Bank";
 
 function App() {
-  const [activeSection, setActiveSection] = useState(null);
-
-  const onSectionClick = (section) => {
-    setActiveSection(section);
-  };
-
-  const renderSection = () => {
-    switch (activeSection) {
-      case "meal":
-        return <Meal />;
-      case "cocktail":
-        return <Cocktail />;
-      case "books":
-        return <Books />;
-      case "bank":
-        return <Bank />;
-      default:
-        return <LandingPage />;
-    }
-  };
-
   return (
-    <>
-      <Navbar onSectionClick={onSectionClick} />
-      <main>{renderSection()}</main>
-    </>
+    <Router>
+      <Navbar />
+      <main>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/meal" element={<Meal />} />
+          <Route path="/cocktail" element={<Cocktail />} />
+          <Route path="/books" element={<Books />} />
+          <Route path="/bank" element={<Bank />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </main>
+    </Router>
   );
 }
 

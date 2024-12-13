@@ -1,4 +1,3 @@
-/* Remove all white space and fit navbar to the top */
 body {
     margin: 0;
     padding: 0;
@@ -43,6 +42,10 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   }
   
+li > a{
+  text-decoration: none;
+}
+
   /* Section-specific colors */
   .navbar-item.meal:hover {
     background-color: #ff7f71;
@@ -68,8 +71,13 @@ body {
   .navbar-icon {
     font-size: 1.5rem;
     margin-bottom: 0.3rem;
+    color: white;
   }
   
+  .navbar-itemName{
+    color: white;
+  }
+
   /* Responsive design */
   @media (max-width: 768px) {
     .navbar-links {
@@ -82,4 +90,3 @@ body {
       width: 100%;
     }
   }
-  
