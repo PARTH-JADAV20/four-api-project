@@ -3,8 +3,7 @@ import "./Bank.css";
 
 export default function Bank() {
   const [ifsc, setIfsc] = useState("");
-  const [ifscData, setIfscData] = useState(null);
-  const [filterData, setFilterData] = useState(null);
+  const [bankData, setBankData] = useState(null);
   const [filters, setFilters] = useState({
     state: "",
     district: "",
@@ -106,14 +105,15 @@ export default function Bank() {
     }
   
     try {
-      const branchName = branch.endsWith(".json") ? branch : `${branch}.json`;
+      // Construct the URL without appending `.json` twice
+      let branchName = branch.endsWith(".json") ? branch : `${branch}.json`;
       const url = `https://bank-apis.justinclicks.com/API/V1/STATE/${state}/${district}/${city}/${center}/${branchName}`;
+      console.log("Fetching URL:", url);
   
       const response = await fetch(url);
       const data = await response.json();
       if (response.ok) {
-        setFilterData(data);
-        setIfscData(null); // Clear IFSC result
+        setBankData(data);
       } else {
         console.error("Error fetching branch details:", data);
       }
@@ -121,41 +121,36 @@ export default function Bank() {
       console.error("Error fetching branch details:", error);
     }
   };
-  
   const handleIfscChange = (e) => setIfsc(e.target.value);
 
-
-
- const handleFetchData = async () => {
-  if (!ifsc) {
-    alert("Please enter an IFSC code.");
-    return;
-  }
-  try {
-    const response = await fetch(`https://bank-apis.justinclicks.com/API/V1/IFSC/${ifsc}`);
-    if (!response.ok) {
-      throw new Error("Invalid IFSC code");
+  const handleFetchData = async () => {
+    if (!ifsc) {
+      alert("Please enter an IFSC code.");
+      return;
     }
-    const data = await response.json();
-    setIfscData(data);
-    setFilterData(null); // Clear filter result
-  } catch (error) {
-    alert(error.message);
-    setIfscData(null);
-  }
-};
+    try {
+      const response = await fetch(`https://bank-apis.justinclicks.com/API/V1/IFSC/${ifsc}`);
+      if (!response.ok) {
+        throw new Error("Invalid IFSC code");
+      }
+      const data = await response.json();
+      setBankData(data);
+    } catch (error) {
+      alert(error.message);
+      setBankData(null);
+    }
+  };
 
 
   return (
     <div className="bank-container">
       <div className="sidebar">
         <h2>Bank Search</h2>
-
-        <div className="input-group2">
+        
+        <div className="input-group">
           <label htmlFor="ifsc">Enter IFSC Code:</label>
           <input
             type="text"
-            className="input-group1"
             id="ifsc"
             value={ifsc}
             onChange={handleIfscChange}
@@ -164,7 +159,7 @@ export default function Bank() {
           <button onClick={handleFetchData}>Fetch IFSC Data</button>
         </div>
 
-        <div className="filters1">
+        <div className="filters">
           <h3>Filters</h3>
           <label>
             State:
@@ -240,14 +235,11 @@ export default function Bank() {
               disabled={!filters.center}
             >
               <option value="">Select Branch</option>
-              {dropdownOptions.branches.map((branch, index) => {
-                const displayBranch = branch.endsWith(".json") ? branch.replace(".json", "") : branch;
-                return (
-                  <option key={index} value={branch}>
-                    {displayBranch}
-                  </option>
-                );
-              })}
+              {dropdownOptions.branches.map((branch, index) => (
+                <option key={index} value={branch}>
+                  {branch}
+                </option>
+              ))}
             </select>
           </label>
           <button onClick={handleFetchBranchDetails}>Fetch Branch Details</button>
@@ -255,69 +247,56 @@ export default function Bank() {
       </div>
 
       <div className="main-content">
-        <h2>Bank Details</h2>
-        {ifscData && (
+      {bankData ? (
           <div className="bank-details">
-            <h3>Details from IFSC Code</h3>
+            <h2>Bank Details</h2>
             <p>
-              <strong>Bank:</strong> {ifscData.BANK}
+              <strong>Bank:</strong> {bankData.BANK}
             </p>
             <p>
-              <strong>Branch:</strong> {ifscData.BRANCH}
+              <strong>Branch:</strong> {bankData.BRANCH}
             </p>
             <p>
-              <strong>BankCode:</strong> {ifscData.BANKCODE}
+              <strong>Address:</strong> {bankData.ADDRESS}
             </p>
             <p>
-              <strong>IFSC:</strong> {ifscData.IFSC}
+              <strong>City:</strong> {bankData.CITY}
             </p>
             <p>
-              <strong>Contact:</strong> {ifscData.CONTACT}
+              <strong>District:</strong> {bankData.DISTRICT}
             </p>
             <p>
-              <strong>Address:</strong> {ifscData.ADDRESS}
-            </p>
-            <p>
-              <strong>City:</strong> {ifscData.CITY}
-            </p>
-            <p>
-              <strong>UPI:</strong> {ifscData.UPI? 'ALLOWED': null} {ifscData.UPI}
+              <strong>State:</strong> {bankData.STATE}
             </p>
           </div>
+        ) : (
+          <p className="placeholder">Enter an IFSC code or use filters to fetch bank details.</p>
         )}
 
-        {filterData && (
+        {bankData ? (
           <div className="bank-details">
-            <h3>Details from Filters</h3>
+            <h2>Branch Details</h2>
             <p>
-              <strong>Bank:</strong> {filterData.BANK}
+              <strong>Bank:</strong> {bankData.BANK}
             </p>
             <p>
-              <strong>Branch:</strong> {filterData.BRANCH}
+              <strong>Branch:</strong> {bankData.BRANCH}
             </p>
             <p>
-              <strong>BankCode:</strong> {filterData.BANKCODE}
+              <strong>Address:</strong> {bankData.ADDRESS}
             </p>
             <p>
-              <strong>IFSC:</strong> {filterData.IFSC}
+              <strong>City:</strong> {bankData.CITY}
             </p>
             <p>
-              <strong>Contact:</strong> {filterData.CONTACT}
+              <strong>District:</strong> {bankData.DISTRICT}
             </p>
             <p>
-              <strong>Address:</strong> {filterData.ADDRESS}
-            </p>
-            <p>
-              <strong>City:</strong> {filterData.CITY}
-            </p>
-            <p>
-              <strong>UPI:</strong> {filterData.UPI? 'TRUE': null}{filterData.UPI}
+              <strong>State:</strong> {bankData.STATE}
             </p>
           </div>
-        )}
-
-        {!ifscData && !filterData && (
-          <p className="placeholder">Enter IFSC or use filters to fetch data.</p>
+        ) : (
+          <p className="placeholder">Select filters to fetch branch details.</p>
         )}
       </div>
     </div>
