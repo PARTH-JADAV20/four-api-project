@@ -134,8 +134,13 @@ html, body {
     align-items: center;
     color: white;
     font-size: 160%;
+    font-weight: bold;
   }
   
+  a{
+    text-decoration: none;
+  }
+
   .img1{
     background-color: #ff6f61;
   }

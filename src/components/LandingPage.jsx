@@ -1,5 +1,6 @@
 import React from "react";
 import "./LandingPage.css";
+import { NavLink } from "react-router-dom";
 
 export default function LandingPage() {
   return (
@@ -19,6 +20,7 @@ export default function LandingPage() {
 
       {/* Image Cards Section */}
       <div className="landing-images">
+        <NavLink to="/meal">
         <div className="image-card meal-card1">
           <div className="img1 img">Meals</div>
           <h3>Meals</h3>
@@ -27,6 +29,8 @@ export default function LandingPage() {
             learn cooking tips to elevate your meals.
           </p>
         </div>
+        </NavLink>
+        <NavLink to="/cocktail">
         <div className="image-card cocktail-card1">
         <div className="img2 img">Cocktails</div>
           <h3>Cocktails</h3>
@@ -35,6 +39,8 @@ export default function LandingPage() {
             techniques, and surprise your friends with your bartending skills!
           </p>
         </div>
+        </NavLink>
+        <NavLink to="/books">
         <div className="image-card book-card">
         <div className="img3 img">Books</div>
           <h3>Books</h3>
@@ -43,6 +49,8 @@ export default function LandingPage() {
             favorite read, and unlock the joy of reading.
           </p>
         </div>
+        </NavLink>
+        <NavLink to="/bank">
         <div className="image-card bank-card">
         <div className="img4 img">Banking</div>
           <h3>Banking</h3>
@@ -51,6 +59,8 @@ export default function LandingPage() {
             and plan for the future with confidence.
           </p>
         </div>
+        </NavLink>
+        
       </div>
     </section>
   );
