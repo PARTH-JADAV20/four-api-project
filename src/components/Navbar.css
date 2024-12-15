@@ -43,7 +43,7 @@ li > a {
 
 /* Section-specific colors */
 .navbar-item.home:hover {
-  background-color: #f39c12; /* Home button gradient */
+  background-color: rgb(247, 142, 43); 
   box-shadow: 0 4px 8px rgba(106, 17, 203, 0.3);
 }
 

@@ -19,24 +19,16 @@ export default function LandingPage() {
 
       {/* Image Cards Section */}
       <div className="landing-images">
-        <div className="image-card meal-card">
-          <img
-            src="https://via.placeholder.com/400x250/ff6f61/fff?text=Meals"
-            alt="Meal"
-            className="card-image"
-          />
+        <div className="image-card meal-card1">
+          <div className="img1 img">Meals</div>
           <h3>Meals</h3>
           <p>
             Discover a variety of delicious recipes, explore new cuisines, and
             learn cooking tips to elevate your meals.
           </p>
         </div>
-        <div className="image-card cocktail-card">
-          <img
-            src="https://via.placeholder.com/400x250/6b5b95/fff?text=Cocktails"
-            alt="Cocktail"
-            className="card-image"
-          />
+        <div className="image-card cocktail-card1">
+        <div className="img2 img">Cocktails</div>
           <h3>Cocktails</h3>
           <p>
             Dive into the world of refreshing drinks, learn cocktail-making
@@ -44,11 +36,7 @@ export default function LandingPage() {
           </p>
         </div>
         <div className="image-card book-card">
-          <img
-            src="https://via.placeholder.com/400x250/88b04b/fff?text=Books"
-            alt="Books"
-            className="card-image"
-          />
+        <div className="img3 img">Books</div>
           <h3>Books</h3>
           <p>
             Browse through a collection of amazing books, discover your next
@@ -56,11 +44,7 @@ export default function LandingPage() {
           </p>
         </div>
         <div className="image-card bank-card">
-          <img
-            src="https://via.placeholder.com/400x250/f7cac9/fff?text=Banking"
-            alt="Banking"
-            className="card-image"
-          />
+        <div className="img4 img">Banking</div>
           <h3>Banking</h3>
           <p>
             Access tools and resources to manage your finances, make payments,

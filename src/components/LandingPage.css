@@ -90,18 +90,24 @@ html, body {
   
   /* Individual card styling */
   .image-card {
-    background-color: white;
-    padding: 1.5rem;
+    /* background-color: white;
+    padding: 1.5rem; */
     text-align: center;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* border-radius: 12px; */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
   }
   
   .image-card h3 {
     font-size: 1.7rem;
     margin-bottom: 1rem;
     color: #333;
+    padding-top: 4%;
   }
   
   .image-card p {
@@ -119,7 +125,33 @@ html, body {
     margin-bottom: 1rem;
     animation: bounceIn 1s ease-out;
   }
+
+  .img{
+    height: 157px;
+    width: 252px;
+    border-radius: 10px;
+    display: grid;
+    align-items: center;
+    color: white;
+    font-size: 160%;
+  }
   
+  .img1{
+    background-color: #ff6f61;
+  }
+
+  .img2{
+    background-color: #6b5b95;
+  }
+
+  .img3{
+    background-color: #88b04b;
+  }
+
+  .img4{
+    background-color: #f7cac9;
+  }
+
   /* Bounce-in animation for images */
   @keyframes bounceIn {
     0% {
@@ -136,11 +168,11 @@ html, body {
   }
   
   /* Unique colors for each card */
-  .meal-card {
+  .meal-card1 {
     border-top: 5px solid #ff6f61;
   }
   
-  .cocktail-card {
+  .cocktail-card1 {
     border-top: 5px solid #6b5b95;
   }
   
@@ -168,4 +200,5 @@ html, body {
       font-size: 1rem;
     }
   }
+  
   
