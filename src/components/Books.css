@@ -14,14 +14,20 @@
   .category-selection button {
     padding: 10px 20px;
     border: 1px solid #ccc;
+    color: white;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+    background: url(img/images_q=tbn_ANd9GcSaUpEjYImyDRtVLarzTlH-Z0IVXDgaWHE8bQ&s.png);
+  }
+
+  .language-selection select option{
+    color: black;
   }
   
   .category-selection button.active {
-    background-color: #007bff;
-    color: white;
+    background: url(img/wooden-wood-backgrounds-textured-pattern-wallpaper-concept_53876-14103.png);
+    color: rgb(37, 49, 219);
   }
 
   .category-selection > button {
@@ -36,14 +42,18 @@
   
   .card {
     width: 18%;
-    border: 3px solid rgb(170, 184, 114);
+    background:url(img/wooden-wood-backgrounds-textured-pattern-wallpaper-concept_53876-14103.png);
+    border: 3px solid rgb(180, 57, 22) ;
+    box-shadow: 5px 5px 4px rgb(77, 18, 2);
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 10px;
+    border-top-right-radius: 20px;
     text-align: center;
     cursor: pointer;
     box-sizing: border-box;
     transition: transform 0.3s;
     margin-left: 8px;
+    color: black;
   }
   
   .card:hover {
@@ -51,15 +61,15 @@
   }
   
   .card-image {
-    width: 100%;
-    height: auto;
+    width: 210px;
+    height: 350px;
     border-radius: 8px;
   }
   
   .more-button {
     margin-top: 10px;
     padding: 8px 12px;
-    background-color: #007bff;
+    background: url(img/images_q=tbn_ANd9GcSaUpEjYImyDRtVLarzTlH-Z0IVXDgaWHE8bQ&s.png);
     color: white;
     border: none;
     border-radius: 4px;
@@ -67,7 +77,7 @@
   }
   
   .more-button:hover {
-    background-color: #0056b3;
+    background: url(img/background-seamless-wood-1.png);
   }
   
   /* Modal overlay */

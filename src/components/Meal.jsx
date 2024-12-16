@@ -69,6 +69,7 @@ const Meal = () => {
       <div className="filters">
         <input
           type="text"
+          className='mealsearch'
           placeholder="Search meals"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
@@ -110,6 +111,7 @@ const Meal = () => {
               <div className="modal-image">
                 <img src={selectedMeal.strMealThumb} alt={selectedMeal.strMeal} />
                 <h2 className="mealname">{selectedMeal.strMeal}</h2>
+                {selectedMeal.strYoutube ? (<a className="linktoyt" href={selectedMeal.strYoutube}>Link to Video</a>) : null}
               </div>
               <div className="modal-info">
                 

@@ -34,6 +34,15 @@ body {
   .filters select {
     width: 30%;
   }
+
+  .cocktailsrch{
+    background: linear-gradient(90deg,#6b5b95,white);
+    color: white;
+  }
+
+  .cocktailsrch::placeholder{
+    color: white;
+  }
   
   /* Cocktail Cards Layout */
   .cocktail-cards {
@@ -49,6 +58,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    border-top: 4px solid #6b5b95;
   }
   
   .cocktail-card img {

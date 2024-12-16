@@ -31,6 +31,10 @@ body {
   width: 60%;
 }
 
+.mealsearch{
+  background: linear-gradient(90deg,#ff6f61,white);
+}
+
 .filters select {
   width: 30%;
 }
@@ -49,6 +53,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+  border-top: 4px solid #ff6f61;
 }
 
 .meal-card img {
@@ -190,4 +195,12 @@ body {
 
 strong{
   color: #3498db;
+}
+
+.linktoyt{
+  background-color: rgb(52, 152, 219);
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 3%;
+  color: white;
 }

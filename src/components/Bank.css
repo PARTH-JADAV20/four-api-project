@@ -10,7 +10,7 @@
   
   .sidebar {
     width: 20%;
-    background-color: rgb(141, 90, 23);
+    background: linear-gradient(180deg,rgb(155, 97, 22),rgb(187, 115, 21));
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -124,7 +124,7 @@
   }
   
   .bank-details {
-    background-color: white;
+    background: linear-gradient(90deg, wheat, white);
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -133,7 +133,7 @@
     position: relative;
     overflow: hidden;
     margin-top: 2%;
-    border-top: 5px solid #f59420;
+    border-top: 5px solid rgb(227, 87, 76);
   }
 
 

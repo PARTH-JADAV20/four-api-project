@@ -311,7 +311,7 @@ export default function Bank() {
               <strong>City:</strong> {filterData.CITY}
             </p>
             <p>
-              <strong>UPI:</strong> {filterData.UPI? 'TRUE': null}{filterData.UPI}
+              <strong>UPI:</strong> {filterData.UPI? 'ALLOWED': null}{filterData.UPI}
             </p>
           </div>
         )}

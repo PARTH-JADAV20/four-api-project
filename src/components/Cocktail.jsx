@@ -67,6 +67,7 @@ const Cocktail = () => {
       <div className="filters">
         <input
           type="text"
+          className='cocktailsrch'
           placeholder="Search cocktails"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
