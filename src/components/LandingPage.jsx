@@ -12,7 +12,7 @@ export default function LandingPage() {
           Explore the exciting world of <span className="highlight">Meals</span>,{" "}
           <span className="highlight">Cocktails</span>,{" "}
           <span className="highlight">Books</span>, and{" "}
-          <span className="highlight">Banking</span>.
+          <span className="highlight">Banks</span>.
           Click on any of the sections above to discover more and enhance your
           experience!
         </p>
@@ -45,18 +45,18 @@ export default function LandingPage() {
         <div className="img3 img">Books</div>
           <h3>Books</h3>
           <p>
-            Browse through a collection of amazing books, discover your next
+            Browse through a collection of amazing <b>Harry Potter</b> books, discover your next
             favorite read, and unlock the joy of reading.
           </p>
         </div>
         </NavLink>
         <NavLink to="/bank">
         <div className="image-card bank-card">
-        <div className="img4 img">Banking</div>
-          <h3>Banking</h3>
+        <div className="img4 img">Banks</div>
+          <h3>Banks</h3>
           <p>
-            Access tools and resources to manage your finances, make payments,
-            and plan for the future with confidence.
+            Access the imformation regarding Banks with Ifsc codes and locations
+            and plan your next bank account.
           </p>
         </div>
         </NavLink>
