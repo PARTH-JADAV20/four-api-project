@@ -32,18 +32,34 @@ const Cocktail = () => {
 
       const response = await fetch(url);
       const data = await response.json();
-      setCocktails(data.drinks || []); // Set cocktails to the fetched data
+      setCocktails(data.drinks || []);
     };
 
     fetchCocktails();
   }, [searchTerm, alcoholic, category]);
 
-  useEffect(()=>{
+  // Reset other filters when a filter changes
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+    setAlcoholic('');
+    setCategory('Other / Unknown');
+  };
 
-  },[])
+  const handleAlcoholicChange = (e) => {
+    setAlcoholic(e.target.value);
+    setSearchTerm('');
+    setCategory('Other / Unknown');
+  };
+
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+    setSearchTerm('');
+    setAlcoholic('');
+  };
+
   // Update filteredCocktails when cocktails data changes
   useEffect(() => {
-    setFilteredCocktails(cocktails); // Set filtered cocktails to full list
+    setFilteredCocktails(cocktails);
   }, [cocktails]);
 
   const showCocktailDetails = (id) => {
@@ -67,17 +83,17 @@ const Cocktail = () => {
       <div className="filters">
         <input
           type="text"
-          className='cocktailsrch'
+          className="cocktailsrch"
           placeholder="Search cocktails"
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={handleSearchChange}
         />
-        <select onChange={(e) => setAlcoholic(e.target.value)}>
+        <select onChange={handleAlcoholicChange} value={alcoholic}>
           <option value="">Select Alcoholic Type</option>
           <option value="Alcoholic">Alcoholic</option>
           <option value="Non_Alcoholic">Non Alcoholic</option>
         </select>
-        <select onChange={(e) => setCategory(e.target.value)}>
+        <select onChange={handleCategoryChange} value={category}>
           <option value="">Select Category</option>
           {categories.map((category, index) => (
             <option key={index} value={category}>{category}</option>
