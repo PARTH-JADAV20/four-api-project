@@ -48,8 +48,8 @@ const Meal = () => {
   // Show meal details in modal
   const showMealDetails = (id) => {
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
-      .then(response => response.json())
-      .then(data => setSelectedMeal(data.meals[0]));
+      .then((response) => response.json())
+      .then((data) => setSelectedMeal(data.meals[0]));
   };
 
   // Close the modal
@@ -64,33 +64,58 @@ const Meal = () => {
     }
   };
 
+  // Reset other filters when search term is updated
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+    setArea(''); // Reset area
+    setCategory(''); // Reset category
+  };
+
+  // Reset other filters when area is selected
+  const handleAreaChange = (e) => {
+    setArea(e.target.value);
+    setSearchTerm(''); // Reset search term
+    setCategory(''); // Reset category
+  };
+
+  // Reset other filters when category is selected
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+    setSearchTerm(''); // Reset search term
+    setArea(''); // Reset area
+  };
+
   return (
     <div className="meal-section">
       <div className="filters">
         <input
           type="text"
-          className='mealsearch'
+          className="mealsearch"
           placeholder="Search meals"
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={handleSearchChange}
         />
-        <select onChange={(e) => setArea(e.target.value)}>
+        <select value={area} onChange={handleAreaChange}>
           <option value="">Select Area</option>
           {areas.map((area, index) => (
-            <option key={index} value={area}>{area}</option>
+            <option key={index} value={area}>
+              {area}
+            </option>
           ))}
         </select>
-        <select onChange={(e) => setCategory(e.target.value)}>
+        <select value={category} onChange={handleCategoryChange}>
           <option value="">Select Category</option>
           {categories.map((category, index) => (
-            <option key={index} value={category}>{category}</option>
+            <option key={index} value={category}>
+              {category}
+            </option>
           ))}
         </select>
       </div>
 
       <div className="meal-cards">
         {filteredMeals.length > 0 ? (
-          filteredMeals.map(meal => (
+          filteredMeals.map((meal) => (
             <div key={meal.idMeal} className="meal-card">
               <img src={meal.strMealThumb} alt={meal.strMeal} />
               <h3>{meal.strMeal}</h3>
@@ -106,22 +131,33 @@ const Meal = () => {
       {selectedMeal && (
         <div className="modal open" onClick={handleClickOutside}>
           <div className="modal-content">
-            <span className="close" onClick={closeModal}>&times;</span>
+            <span className="close" onClick={closeModal}>
+              &times;
+            </span>
             <div className="modal-details">
               <div className="modal-image">
                 <img src={selectedMeal.strMealThumb} alt={selectedMeal.strMeal} />
                 <h2 className="mealname">{selectedMeal.strMeal}</h2>
-                {selectedMeal.strYoutube ? (<a className="linktoyt" href={selectedMeal.strYoutube}>Link to Video</a>) : null}
+                {selectedMeal.strYoutube ? (
+                  <a className="linktoyt" href={selectedMeal.strYoutube}>
+                    Link to Video
+                  </a>
+                ) : null}
               </div>
               <div className="modal-info">
-                
-                <p><strong>Area:</strong> {selectedMeal.strArea}</p>
+                <p>
+                  <strong>Area:</strong> {selectedMeal.strArea}
+                </p>
                 <h4>Ingredients</h4>
                 <ul>
                   {Array.from({ length: 20 }).map((_, index) => {
                     const ingredient = selectedMeal[`strIngredient${index + 1}`];
                     const measure = selectedMeal[`strMeasure${index + 1}`];
-                    return ingredient ? <li key={index}>{ingredient} - {measure}</li> : null;
+                    return ingredient ? (
+                      <li key={index}>
+                        {ingredient} - {measure}
+                      </li>
+                    ) : null;
                   })}
                 </ul>
                 <h4>Instructions</h4>
