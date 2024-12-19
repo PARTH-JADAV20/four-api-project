@@ -120,6 +120,7 @@ export default function Bank() {
     } catch (error) {
       console.error("Error fetching branch details:", error);
     }
+    setIfsc("");
   };
   
   const handleIfscChange = (e) => setIfsc(e.target.value);
@@ -143,6 +144,7 @@ export default function Bank() {
     alert(error.message);
     setIfscData(null);
   }
+  setFilters("");
 };
 
 
